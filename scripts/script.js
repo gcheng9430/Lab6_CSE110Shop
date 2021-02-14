@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   //if the data is not in loca storage, then fetch data
 
-  if (!window.localStorage.getItem('cart')){
+  if (!window.localStorage.getItem('myArray')){
      
 
        fetch('https://fakestoreapi.com/products')
