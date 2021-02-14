@@ -36,6 +36,10 @@ class ProductItem extends HTMLElement {
     myBtn.textContent = 'Add to Cart';
 
     //create some CSS to style it 
+    var myLink = document.createElement('link');
+    myList.setAttribute('rel','stylesheet');
+    myList.setAttribute('href','styles.css');
+    /*
     let style = document.createElement('style');
     style.textContent = '
   .price {
@@ -101,11 +105,11 @@ class ProductItem extends HTMLElement {
   overflow: auto;
   text-overflow: unset;
 } ';
-
+*/
 
 
     //attach the created element to the shadow DOM
-    this.ShadowRoot.appendChild(myList, style);
+    this.ShadowRoot.appendChild(myList, myLink);
 
 
   }
