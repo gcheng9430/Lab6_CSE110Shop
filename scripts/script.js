@@ -8,19 +8,26 @@ window.addEventListener('DOMContentLoaded', () => {
       let data = await fetch('https://fakestoreapi.com/products');
       let response = await data.json();
 
-      var stringResponse = JSON.stringify(response);
-      window.localStorage.setItem('myArray', stirngResponse);
+      //loop through each object 
+      for (var one in response){
+      var stringResponse = JSON.stringify(one);
+      window.localStorage.setItem(one.id, stirngResponse);
+      }
   }
-
+  
+  if (!window.localStorage.getItem('cart')){
+    window.localStorage.setItem('cart','[]');
+  }
  
 
   var myContainer = document.getElementById("product-list");
 
 // retrieve data 
-  var retrieve = JSON.parse(window.localStorage.getItem('myArray'));
+for (var i= 0, len = localStorage.length-1; i<len;i++)}{
+  var r = JSON.parse(window.localStorage.getItem(localStorage.key(i)));
 
   //for each of the item fetched, create a custom product-item and attach to container
-  for (let d in retrieve){
+
     //create the item
     let myItem = document.createElement('product-item');
     myItem.setAttribute('img', r.image);
