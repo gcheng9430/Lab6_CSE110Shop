@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
   var myContainer = document.getElementById("product-list");
 
 // retrieve data 
-for (var i= 0, len = localStorage.length-1; i<len;i++)}{
+for (var i= 0, len = localStorage.length-1; i<len;i++){
   var r = JSON.parse(window.localStorage.getItem(localStorage.key(i)));
 
   //for each of the item fetched, create a custom product-item and attach to container
@@ -40,6 +40,8 @@ for (var i= 0, len = localStorage.length-1; i<len;i++)}{
     myItem.setAttribute('alt', r.title);
     myItem.setAttribute('titleText', r.title);
     myItem.setAttribute('priceText', r.price);
+    //if the item is already in the cart
+
     //append it to the container 
     myContainer.appendChild(myItem);
 
