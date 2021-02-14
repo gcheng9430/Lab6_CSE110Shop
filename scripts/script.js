@@ -4,12 +4,18 @@ window.addEventListener('DOMContentLoaded', () => {
   // TODO
 
   //if the data is not in loca storage, then fetch data
+
+  async function callMe(url){
+    const response = await fetch(url);
+    var data = await response.json();
+    return data;
+  }
+  
   if (!window.localStorage.getItem(myArray)){
-      let data = await fetch('https://fakestoreapi.com/products');
-      let response = await data.json();
+      let data = callMe('https://fakestoreapi.com/products');
 
       //loop through each object 
-      for (var one in response){
+      for (var one in data){
       var stringResponse = JSON.stringify(one);
       window.localStorage.setItem(one.id, stirngResponse);
       }
