@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
            
           var stringResponse = JSON.stringify(data);
-          window.localStorage.setItem('myArray', stirngResponse);
+          window.localStorage.setItem('myArray', stringResponse);
                
           window.localStorage.setItem('cart','[]');
 
