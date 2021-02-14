@@ -5,18 +5,21 @@ window.addEventListener('DOMContentLoaded', () => {
 
   //if the data is not in loca storage, then fetch data
 
-
-  
   if (!window.localStorage.getItem('cart')){
-    const response =  fetch('https://fakestoreapi.com/products');
-    var data =  response.json();
+     
 
-      //loop through each object 
-      for (var one in data){
-      var stringResponse = JSON.stringify(one);
-      window.localStorage.setItem(one.id, stirngResponse);
-      }
-      window.localStorage.setItem('cart','[]');
+       fetch('https://fakestoreapi.com/products')
+       .then(response => response.json())
+       .then(data=>{
+
+           
+          var stringResponse = JSON.stringify(data);
+          window.localStorage.setItem('myArray', stirngResponse);
+               
+          window.localStorage.setItem('cart','[]');
+
+       })
+
   }
   
  
@@ -25,9 +28,9 @@ window.addEventListener('DOMContentLoaded', () => {
   let myCart = JSON.parse(window.localStorage.getItem(localStorage.length-1));
 
 // retrieve data 
-for (var i= 0, len = localStorage.length-1; i<len;i++){
-  var r = JSON.parse(window.localStorage.getItem(localStorage.key(i)));
 
+  var arr = JSON.parse(window.localStorage.getItem('myArray'));
+  for (var r in arr){
   //for each of the item fetched, create a custom product-item and attach to container
 
     //create the item
