@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
     return data;
   }
   
-  if (!window.localStorage.getItem(myArray)){
+  if (!window.localStorage.getItem('cart')){
       let data = callMe('https://fakestoreapi.com/products');
 
       //loop through each object 
@@ -19,14 +19,13 @@ window.addEventListener('DOMContentLoaded', () => {
       var stringResponse = JSON.stringify(one);
       window.localStorage.setItem(one.id, stirngResponse);
       }
+      window.localStorage.setItem('cart','[]');
   }
   
-  if (!window.localStorage.getItem('cart')){
-    window.localStorage.setItem('cart','[]');
-  }
  
 
   var myContainer = document.getElementById("product-list");
+  let myCart = JSON.parse(window.localStorage.getItem(localStorage.length-1));
 
 // retrieve data 
 for (var i= 0, len = localStorage.length-1; i<len;i++){
@@ -41,14 +40,16 @@ for (var i= 0, len = localStorage.length-1; i<len;i++){
     myItem.setAttribute('titleText', r.title);
     myItem.setAttribute('priceText', r.price);
     //if the item is already in the cart
+    if (myCart.includes(r.id)){
 
+    }
     //append it to the container 
     myContainer.appendChild(myItem);
 
   }
 });
 
-
+/*
 //add event listener to every button
 for (let btn in document.querySelector('button')){
 btn.addEventListener(onclick,function(){addOrRemove(btn)});
@@ -56,16 +57,18 @@ btn.addEventListener(onclick,function(){addOrRemove(btn)});
 
 function addOrRemove(btn){
   let count = document.getElementById('cart-count');
+  let cart = JSON.parse(window.localStorage.getItem(localStorage.length-1));
+
   //to add to cart
   if (btn.textContent == 'Add to Cart'){
     count ++;
     btn.textContent = 'Remove from Cart';
-
+    cart.push();
   } else { //to remove from cart
     count --;
     btn.textContent = 'Add to Cart';
 
   }
 }
-
+*/
 
