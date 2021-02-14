@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
  
 
   var myContainer = document.getElementById("product-list");
-  let myCart = JSON.parse(window.localStorage.getItem(localStorage.length-1));
+  let myCart = JSON.parse(window.localStorage.getItem('cart'));
 
 // retrieve data 
 
