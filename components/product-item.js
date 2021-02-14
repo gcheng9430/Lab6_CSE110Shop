@@ -21,19 +21,18 @@ class ProductItem extends HTMLElement {
     //create the element
     let myList = document.createElement('li');
     myList.setAttribute('class','product');
+
     let myImg = myList.appendChild(document.createElement('img'));
-    myImg.setAttribute('src', this.getAttribute('src'));
-    myImg.setAttribute('alt', this.getAttribute('alt'));
     myImg.setAttribute('width', '200px');
+
     let firstP = myList.appendChild(document.createElement('p'));
     firstP.setAttribute('class', 'title');
-    firstP.textContent = this.getAttribute('titleText');
+
     let secondP = myList.appendChild(document.createElement('p'));
     secondP.setAttribute('class', 'price');
-    secondP.textContent = this.getAttribute('priceText');
+
     let myBtn = myList.appendChild(document.createElement('button'));
-    myBtn.setAttribute('onclick', "alert('Added to Cart!')");
-    myBtn.textContent = 'Add to Cart';
+
 
     //create some CSS to style it 
     var myLink = document.createElement('link');
